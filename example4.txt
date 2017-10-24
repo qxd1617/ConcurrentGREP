@@ -1,0 +1,12 @@
+There are three cases where a FileNotFoundException may be thrown.
+
+The named file does not exist.
+The named file is actually a directory.
+The named file cannot be opened for reading for some reason.
+The first two cases are unlikely based on your description. I would test against the third case using file.canRead().
+
+If the test above returns true, I would suspect the following:
+
+You might have forgotten to explicitly throw or catch the potential exception (i.e., FileNotFoundExcetion). If you work in an IDE, you should have got some complaint from the compiler. But I suspect you didn't run your code in such an IDE.
+
+I've just run your code without taking care of the complaint from Netbeans, only to get the following exception message:
